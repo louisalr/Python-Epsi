@@ -67,28 +67,25 @@ print(countLetterOccurence(phrase))
 
 def countEachOccurence():
     phrase="Salut ça va"
-    #créer un tableau avec toutes les lettres de la phrase
 
     #enleve les espaces dans la phrase
     strippedPhrase = phrase.replace(" ","")
+    #passe tout en minuscule
+    minPhrase = strippedPhrase.lower()
+    #créer un dictionnaire avec toutes les lettres de la phrase
+    listeDic = {}
 
-    listeCaracters = []
-    listeFrequences = []
-    
-    listeDic = dict()
+    #boucle pour chaque caractère dans la phrase
+    for char in minPhrase:
+        #si la lettre n'est pas dans le dictionnaire,
+        #alors on l'ajoute
+        if not listeDic or char not in listeDic.keys():
+            listeDic.update({char: 1})
+        #sinon l'on incrémente la valeur
+        else:
+            listeDic[char] += 1
 
-    print(listeDic)
-
-    for i in strippedPhrase:
-        print({i})
-
-        #si le caractère n'est pas vide
-        listeDic['{i}'] = "ef"
-        #vérifie si le caractère est dejà dans la liste ou non
-
-    
-    for i in listeDic:
-        print(i)
+    return listeDic
 
 print(countEachOccurence())
 
